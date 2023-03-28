@@ -1,9 +1,17 @@
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Page/Home/Home";
+import LoginPage from "./Page/Login/LoginPage";
 
-
-export const Router = () => {
+const Router = () => {
     return (
-        //TODO Make router with Home page and Login page
-        <div>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="login" element={<LoginPage />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
+
+export default Router;
