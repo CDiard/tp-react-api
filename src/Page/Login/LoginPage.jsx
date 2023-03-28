@@ -22,6 +22,7 @@ const LoginPage = () => {
                 .then(data => localStorage.setItem("tokenUser", data.token));
 
             //Redirect home page
+            window.location.href = '/';
 
         } catch (error) {
             console.log(error);
