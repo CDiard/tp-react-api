@@ -9,6 +9,20 @@ const LoginPage = () => {
         setFormSubmitting(true);
         try {
             //TODO Make Login call
+            await fetch('http://127.0.0.1:8000/api/login_check', {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username: credentials.login,
+                    password: credentials.password
+                }),
+                method: 'POST',
+            }).then(response => response.json())
+                .then(data => localStorage.setItem("tokenUser", data.token));
+
+            //Redirect home page
+
         } catch (error) {
             console.log(error);
             // message
