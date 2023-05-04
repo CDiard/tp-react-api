@@ -8,11 +8,12 @@ export function RequireAuth({ children }) {
 
 
     if (user === null) {
-        // return <Navigate to="/login" />;
 
         if (window.location.pathname !== "/login") {
             //TODO Navigate to login
-            window.location.href = '/login';
+            return <Navigate to="/login" replace={true} />;
+        } else {
+            return children;
         }
     } else {
         return children;
@@ -25,7 +26,7 @@ function App() {
   return (
       <div>
           <Router>
-              <RequireAuth />
+              <RequireAuth></RequireAuth>
           </Router>
       </div>
   );
