@@ -1,13 +1,179 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f0f0f0;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h2 {
+    width: 80%;
+    margin: 10px 10%;
+    color: #282c34;
+}
+
+.load {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 4px solid #282c34;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+.loader::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-left: 4px solid #ee171f;
+    border-bottom: 4px solid transparent;
+    animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-img {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    background: #FFF;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(40, 44, 52, 0.33);
+    transform: scale(150%);
+}
+.loader-img:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    transform: rotate(45deg) translate(30%, 40%);
+    background: #ff9371;
+    box-shadow: 32px -34px 0 5px #ff3d00;
+    animation: slide 2s infinite ease-in-out alternate;
+}
+.loader-img:after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ff3d00;
+    transform: rotate(0deg);
+    transform-origin: 35px 145px;
+    animation: rotate 2s infinite ease-in-out;
+}
+
+@keyframes slide {
+    0% , 100%{ bottom: -35px}
+    25% , 75%{ bottom: -2px}
+    20% , 80%{ bottom: 2px}
+}
+@keyframes rotate {
+    0% { transform: rotate(-15deg)}
+    25% , 75%{ transform: rotate(0deg)}
+    100% {  transform: rotate(25deg)}
+}
+
+
+
+.container {
+    width: 80%;
+    margin: 30px 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: start;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+.card {
+    width: 180px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+.card::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    background: #ee171f;
+    width: 160px;
+    height: 160px;
+    border-radius: 120px;
+    z-index: 0;
+    transition: all 1s ease;
+}
+.card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    z-index: 1;
+    border-radius: 5px;
+}
+.card h3 {
+    text-align: center;
+    font-weight: normal;
+    color: #282c34;
+    margin: 20px 0 0 0;
+    z-index: 1;
+    transition: all 1.2s ease;
+}
+.card:hover h3 {
+    color: #fff;
+}
+.card:hover::before {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border-radius: 25px;
+}
+
+.no-img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

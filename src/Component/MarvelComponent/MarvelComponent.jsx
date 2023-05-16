@@ -22,16 +22,30 @@ const MarvelComponent = () => {
     return (
         <>
             <div>
-                <h2>Liste des éléments</h2>
-                <ul>
+                <h2>Liste des personnages</h2>
+                <div className='container'>
                     {isLoading === true ? items['hydra:member'].map(item => (
-                        <li key={item.id}>
-                            <img src={item.thumbnail} alt={item.name} style={{width: 80}}/>
-                            {item.name}
-                        </li>
-                    )) : 'Chargement des données'}
+                        <div key={item.id} className="card">
+                            {item.thumbnail === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" ? (
+                                <div className="no-img">
+                                    <span className="loader-img"></span>
+                                </div>
+                            ) : (
+                                <>
+                                    <img src={item.thumbnail} alt={item.name}/>
+                                </>
+                            )}
+                            <h3>{item.name}</h3>
+
+                        </div>
+                    )) : (
+                        <div className="load">
+                            <span className="loader"></span>
+                            <p>Chargement des données</p>
+                        </div>
+                    )}
                     {/*faire un load de chargement*/}
-                </ul>
+                </div>
             </div>
         </>
     );
