@@ -1,11 +1,12 @@
 import './App.css';
+import './index.css';
 import Router from './Router';
 import { Navigate } from 'react-router-dom';
+import React, {useState} from 'react';
 
 export function RequireAuth({ children }) {
     // Used to ensure the refreshToken is called once at a time
-    const user = localStorage.getItem('tokenUser'); // TODO Get user from local storage
-
+    const user = localStorage.getItem('tokenUser');
 
     if (user === null) {
 

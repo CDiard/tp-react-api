@@ -4,7 +4,7 @@ import {useState} from "react";
 
 const LoginPage = () => {
 
-    const [ formSubmitting, setFormSubmitting ] = useState(false);
+    const [formSubmitting, setFormSubmitting] = useState(false);
     const handleSubmit = async (credentials) => {
         setFormSubmitting(true);
         try {
@@ -18,8 +18,15 @@ const LoginPage = () => {
                     password: credentials.password
                 }),
                 method: 'POST',
-            }).then(response => response.json())
-                .then(data => localStorage.setItem("tokenUser", data.token));
+            }).then((response) => {
+                if (!response.ok) {
+                    switch (response.status) {
+                        case 401:
+                            return window.location = "/login";
+                    }
+                }
+                return response.json();
+            }).then(data => localStorage.setItem("tokenUser", data.token));
 
             //Redirect home page
             window.location.href = '/';
@@ -32,7 +39,7 @@ const LoginPage = () => {
         }
     };
 
-    return(
+    return (
         <div>
 
             <LoginForm
