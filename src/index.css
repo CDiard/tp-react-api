@@ -92,10 +92,10 @@ h2 {
     transform: rotate(0deg);
     transform-origin: 35px 145px;
 }
-.loader-img:hover:before {
+.card:hover .loader-img:before {
     animation: slide 1.8s infinite ease-in-out alternate;
 }
-.loader-img:hover:after {
+.card:hover .loader-img:after {
     animation: rotate 1.8s infinite ease-in-out;
 }
 
@@ -176,7 +176,9 @@ h2 {
 
 .no-img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     display: flex;
     justify-content: center;
     align-items: center;

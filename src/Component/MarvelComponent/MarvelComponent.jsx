@@ -36,7 +36,7 @@ const MarvelComponent = () => {
                                 </>
                             )}
                             <h3>{item.name}</h3>
-
+                            {/*<p>{item.description}</p>*/}
                         </div>
                     )) : (
                         <div className="load">
