@@ -44,7 +44,6 @@ const MarvelComponent = () => {
                             <p>Chargement des données</p>
                         </div>
                     )}
-                    {/*faire un load de chargement*/}
                 </div>
             </div>
         </>

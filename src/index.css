@@ -79,7 +79,6 @@ h2 {
     transform: rotate(45deg) translate(30%, 40%);
     background: #ff9371;
     box-shadow: 32px -34px 0 5px #ff3d00;
-    animation: slide 2s infinite ease-in-out alternate;
 }
 .loader-img:after {
     content: "";
@@ -92,7 +91,12 @@ h2 {
     background: #ff3d00;
     transform: rotate(0deg);
     transform-origin: 35px 145px;
-    animation: rotate 2s infinite ease-in-out;
+}
+.loader-img:hover:before {
+    animation: slide 1.8s infinite ease-in-out alternate;
+}
+.loader-img:hover:after {
+    animation: rotate 1.8s infinite ease-in-out;
 }
 
 @keyframes slide {
@@ -162,7 +166,7 @@ h2 {
 .card:hover h3 {
     color: #fff;
 }
-.card:hover::before {
+.card:hover:before {
     width: 100%;
     height: 100%;
     top: 0;

@@ -1,9 +1,10 @@
 import LoginForm from "../../Component/LoginForm/LoginForm";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 const LoginPage = () => {
-
+    const navigate = useNavigate();
     const [formSubmitting, setFormSubmitting] = useState(false);
     const handleSubmit = async (credentials) => {
         setFormSubmitting(true);
@@ -22,18 +23,17 @@ const LoginPage = () => {
                 if (!response.ok) {
                     switch (response.status) {
                         case 401:
-                            return window.location = "/login";
+                            return navigate("/login");
                     }
                 }
                 return response.json();
             }).then(data => localStorage.setItem("tokenUser", data.token));
 
             //Redirect home page
-            window.location.href = '/';
+            return navigate("/");
 
         } catch (error) {
             console.log(error);
-            // message
         } finally {
             setFormSubmitting(false);
         }

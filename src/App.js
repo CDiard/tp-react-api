@@ -11,7 +11,6 @@ export function RequireAuth({ children }) {
     if (user === null) {
 
         if (window.location.pathname !== "/login") {
-            //TODO Navigate to login
             return <Navigate to="/login" replace={true} />;
         } else {
             return children;
