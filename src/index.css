@@ -183,3 +183,40 @@ h2 {
     justify-content: center;
     align-items: center;
 }
+
+.boutons {
+    width: 80%;
+    margin: 30px 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boutons button {
+    background-color: #fff;
+    border: 0;
+    border-radius: 30px;
+    padding: 10px 40px;
+    font-size: 18px;
+    color: #282c34;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(40, 44, 52, 0.33);
+    position: relative;
+}
+.boutons button:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ee171f;
+    border-radius: 30px;
+    transition: all 1s ease;
+}
+.boutons button:hover:before {
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    border-radius: 60px;
+}
