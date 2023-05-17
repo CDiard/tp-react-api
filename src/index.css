@@ -125,7 +125,7 @@ h2 {
 }
 .card {
     width: 180px;
-    min-height: 180px;
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     padding: 30px 20px;
